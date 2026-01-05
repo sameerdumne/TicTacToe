@@ -12,21 +12,9 @@ export const metadata: Metadata = {
   generator: 'Next.js',
   viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/tictactoe.png',
+    shortcut: '/tictactoe.png',
+    apple: '/tictactoe.png',
   },
 }
 

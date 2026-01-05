@@ -1,7 +1,7 @@
 {
   "name": "my-v0-project",
   "version": "0.1.0",
-  "type":"module",
+  "type": "module",
   "private": true,
   "scripts": {
     "build": "next build",
@@ -58,6 +58,7 @@
     "react-dom": "19.2.0",
     "react-hook-form": "^7.60.0",
     "react-resizable-panels": "^2.1.7",
+    "react-snowfall": "^2.4.0",
     "recharts": "2.15.4",
     "socket.io": "4.8.3",
     "socket.io-client": "4.8.3",

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { io, type Socket } from "socket.io-client"
+import Snowfall from "react-snowfall"
 import GameBoard from "@/components/game-board"
 import GameStatus from "@/components/game-status"
 import GameControls from "@/components/game-controls"
@@ -125,8 +126,17 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col items-center justify-center p-2 sm:p-4">
-      <div className="w-full max-w-md flex-1 flex flex-col justify-center px-2 sm:px-0">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col items-center justify-center p-2 sm:p-4 relative overflow-hidden">
+      {/* Snowfall Effect */}
+      <Snowfall
+        color="#dee2e6"
+        snowflakeCount={100}
+        speed={[0.5, 1.5]}
+        wind={[-0.5, 1.0]}
+        radius={[0.5, 2.0]}
+      />
+      
+      <div className="w-full max-w-md flex-1 flex flex-col justify-center px-2 sm:px-0 relative z-10">
         <h1 className="text-3xl sm:text-4xl font-bold text-center text-white mb-4 sm:mb-8 text-balance">Tic Tac Toe</h1>
 
         <GameStatus
@@ -149,7 +159,7 @@ export default function Home() {
         )}
       </div>
       
-      <footer className="w-full text-center py-3 sm:py-4 text-slate-400 text-xs sm:text-sm">
+      <footer className="w-full text-center py-3 sm:py-4 text-slate-400 text-xs sm:text-sm relative z-10">
         made with ❤️ , by Sameer
       </footer>
     </div>
