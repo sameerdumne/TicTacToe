@@ -5,18 +5,25 @@ import cors from "cors"
 
 const app = express()
 const httpServer = createServer(app)
+
+// Determine allowed origins based on environment
+const allowedOrigins = process.env.NODE_ENV === "production" 
+  ? [
+      process.env.NEXT_PUBLIC_APP_URL,
+      process.env.FRONTEND_URL,
+    ].filter(Boolean)
+  : ["http://localhost:3000", "http://localhost:3001", "http://127.0.0.1:3000", "http://127.0.0.1:3001"]
+
 const io = new Server(httpServer, {
   cors: {
-    origin: process.env.NODE_ENV === "production" 
-      ? process.env.NEXT_PUBLIC_APP_URL 
-      : ["http://localhost:3000", "http://localhost:3001", "http://127.0.0.1:3000", "http://127.0.0.1:3001"],
+    origin: allowedOrigins,
     methods: ["GET", "POST"],
     credentials: true,
   },
 })
 
 app.use(cors({
-  origin: ["http://localhost:3000", "http://localhost:3001", "http://127.0.0.1:3000", "http://127.0.0.1:3001"],
+  origin: allowedOrigins,
   credentials: true,
 }))
 app.use(express.json())
